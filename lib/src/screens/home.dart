@@ -1,4 +1,5 @@
 import 'package:fave_images/src/styles/global.dart';
+import 'package:fave_images/src/widgets/image_container.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -24,7 +25,15 @@ class _HomeState extends State<Home> {
           IconButton(onPressed: () {}, icon: Icon(Icons.favorite_border))
         ],
       ),
-      body: SafeArea(child: Container()),
+      body: SafeArea(
+          child: ListView.builder(
+              itemCount: 4,
+              itemBuilder: (BuildContext context, int i) {
+                return ImageContainer(
+                  imageTitle: 'imageTitle ' + i.toString(),
+                  imageSource: 'assets/images/${i + 1}.jpg',
+                );
+              })),
     );
   }
 }
